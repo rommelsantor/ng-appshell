@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>ngAppShell - Proof of Concept</title>
+<link rel="stylesheet" href="css/style.css" type="text/css"/>
+<base href="/ng-appshell/"/>
+</head>
+<body>
+
+<div ng-app="AppShellDemo">
+  <div id="main" ng-controller="MainController" appshell-group="main" appshell-include="tpl/main.html"></div>
+</div>
+
+<!-- load jQuery 1.11.3, AngularJS 1.4.5, ng-storage -->
+<script src="js/libs.js"></script>
+
+<!-- ng-appshell -->
+<script src="js/ng-appshell.js"></script>
+
+<!-- local -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
