@@ -31,7 +31,7 @@
         else {
           console && console.log('[ng-appshell]', 'Fetching fresh shell over the network');
 
-          var maxSecs = parseInt($attrs.appshellLifetime) || 0;
+          var maxSecs = parseInt($attrs.appshellLifetime) || 3600;
 
           $localStorage[group] = {
             body: '',
