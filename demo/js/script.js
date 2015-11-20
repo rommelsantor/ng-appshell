@@ -29,17 +29,19 @@
   app.controller('MainController', function() {
   });
 
-  app.controller('IndexController', function($scope, $http, $compile, url) {
-    $http({
-      method: 'GET',
-      url: url.createTemplate('index.html')
-    })
-    .then(
-      function success(response) {
-        $('#index-content').append(
-          $compile(response.data)($scope)
-        );
-      }
-    );
+  app.controller('IndexController', function($scope, $http, $compile, url, $timeout) {
+    $timeout(function(){// simulate a latent network request (for a large page)
+      $http({
+        method: 'GET',
+        url: url.createTemplate('index.html')
+      })
+      .then(
+        function success(response) {
+          $('#index-content').addClass('loaded').append(
+            $compile(response.data)($scope)
+          );
+        }
+      );
+    }, 2000);
   });
 })(angular.module('AppShellDemo'));

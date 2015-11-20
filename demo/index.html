@@ -4,19 +4,21 @@
 <meta charset="utf-8"/>
 <title>ngAppShell - Proof of Concept</title>
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
-<base href="/ng-appshell/"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<base href="/ng-appshell/demo/"/>
 </head>
 <body>
 
 <div ng-app="AppShellDemo">
-  <div id="main" ng-controller="MainController" appshell-group="main" appshell-include="tpl/main.html"></div>
+  <div id="main" ng-controller="MainController" appshell-group="main" appshell-lifetime="30" appshell-include="tpl/main.html">
+  </div>
 </div>
 
-<!-- load jQuery 1.11.3, AngularJS 1.4.5, ng-storage -->
+<!-- jQuery 1.11.3, AngularJS 1.4.5, ng-storage -->
 <script src="js/libs.js"></script>
 
 <!-- ng-appshell -->
-<script src="js/ng-appshell.js"></script>
+<script src="http://github.rommelsantor.com/ng-appshell/ng-appshell.js"></script>
 
 <!-- local -->
 <script src="js/script.js"></script>

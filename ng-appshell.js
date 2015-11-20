@@ -6,24 +6,38 @@
       restrict: 'A',
 
       controller: function($scope, $element, $attrs) {
-        var href = $attrs.appshellInclude;
         var group = $attrs.appshellGroup;
 
-/**/
-delete $localStorage[group];
-/**/
+        if (!group)
+          return;
 
-        if ($localStorage[group] && $localStorage[group].body) {
-//console.log($localStorage[group]);
+        var href = $attrs.appshellInclude;
+        var nowTime = Math.floor(new Date().getTime() / 1000);
 
+        if ($localStorage[group] && $localStorage[group].body && $localStorage[group].expireTime >= nowTime) {
+          console && console.log('[ng-appshell]', 'Loading shell from local storage');
+
+          // preload images by url
+          angular.forEach($localStorage[group].images, function(src) {
+            var img = new Image();
+            img.src = src;
+          });
+
+          // load cached HTML
           $element.append(
             $compile($localStorage[group].body)($scope)
           );
         }
         else {
+          console && console.log('[ng-appshell]', 'Fetching fresh shell over the network');
+
+          var maxSecs = parseInt($attrs.appshellLifetime) || 0;
+
           $localStorage[group] = {
             body: '',
-            images: {}
+            images: [],
+            lifetime: maxSecs,
+            expireTime: maxSecs ? (nowTime + maxSecs) : 0
           };
           
           $http({
@@ -50,45 +64,26 @@ delete $localStorage[group];
     };
   });
 
-  app.directive('appshellSrc', function($localStorage) {
+  app.directive('appshellImage', function($localStorage, $timeout) {
     return {
       restrict: 'A',
       link: function(scope, element, attrs) {
-        var src = attrs.appshellSrc;
-        var group = attrs.appshellGroup;
+        $timeout(function(){// give CSS a chance to be applied (for bg img)
+          var group = attrs.appshellGroup;
 
-        if ($localStorage[group].images[src])
-          element.attr({ src: $localStorage[group].images[src] });
-        else {
-          element.one('load', function() {
-            var unadulturatedImg = new Image();
+          if (!group)
+            return;
 
-            unadulturatedImg.onload = function() {
-              // convert img element into data URL, via:
-              // https://hacks.mozilla.org/2012/02/saving-images-and-files-in-localstorage/
-              var imgCanvas = document.createElement('canvas'),
-                  imgContext = imgCanvas.getContext('2d');
-
-              // Make sure canvas is as big as the picture
-              imgCanvas.width = this.width;
-              imgCanvas.height = this.height;
-
-              // Draw image into canvas element
-              imgContext.drawImage(this, 0, 0, this.width, this.height);
-
-              // Get canvas contents as a data URL
-              var dataUrl = imgCanvas.toDataURL('image/png');
-
-              // now store the data URL by mapping it with the true src
-              $localStorage[group].images[src] = dataUrl;
-            };
-
-            unadulturatedImg.src = this.src;
-          });
-
-          // now insert the true src so the image can load
-          element.attr({ src: src });
-        }
+          // save src of <img> tag
+          if (element.prop('tagName') === 'IMG')
+            $localStorage[group].images.push(attrs.src);
+          // otherwise assume/hope it has a background-image url
+          else {
+            var bgImg = element.css('background-image');
+            if (/url\((.+)\)/.test(bgImg))
+              $localStorage[group].images.push(RegExp.$1);
+          }
+        });
       }
     };
   });

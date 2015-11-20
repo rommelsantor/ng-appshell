@@ -20,13 +20,37 @@ body {
     z-index: 1;
     position: absolute;
     top: 0;
-    height: 65px;
     width: 100%;
     background: #000;
     text-align: center;
     padding: 1em 0; }
     #main header img {
-      max-height: 100%; }
+      max-height: 65px; }
+    #main header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0; }
+      #main header nav ul > li {
+        display: inline-block; }
+        #main header nav ul > li a {
+          font-style: helvetica,arial,sans-serif;
+          display: block;
+          padding: 7px 15px;
+          text-decoration: none;
+          color: #39f;
+          transition: all 200ms; }
+          #main header nav ul > li a:hover {
+            background: rgba(255, 255, 255, 0.2); }
+        #main header nav ul > li > ul {
+          display: none;
+          width: 200px;
+          position: absolute; }
+          #main header nav ul > li > ul li {
+            list-style: none;
+            display: block;
+            background: #222; }
+        #main header nav ul > li:hover > ul {
+          display: block; }
   #main section {
     position: absolute;
     top: 0;
@@ -45,20 +69,14 @@ body {
       opacity: 0.5; }
     #main section .row {
       z-index: 0;
-      margin-top: 120px;
+      margin-top: 150px;
       text-align: center; }
-      #main section .row #main-gal img {
-        vertical-align: top;
-        display: inline-block;
-        height: auto;
-        width: 47%;
-        margin: 1%; }
       #main section .row .lhs,
       #main section .row .rhs {
         text-align: left;
         vertical-align: top;
-        margin: 0 10px 1em;
-        padding: 1em;
+        margin: 0 5px 1em;
+        padding: 0.5em;
         display: inline-block;
         background: rgba(0, 0, 0, 0.4);
         -webkit-box-sizing: border-box;
@@ -79,5 +97,19 @@ body {
     background: #000;
     width: 100%;
     padding: 1em 0; }
+
+#index-content {
+  min-height: 200px;
+  background: url("../media/loading.gif") center no-repeat; }
+  #index-content.loaded {
+    background: none; }
+  #index-content h3 {
+    border-bottom: 1px solid;
+    margin-top: 0.5em; }
+  #index-content p {
+    max-width: 95%;
+    margin: 2em auto;
+    font-size: 0.9em;
+    line-height: 1.65; }
 
 /*# sourceMappingURL=style.css.map */

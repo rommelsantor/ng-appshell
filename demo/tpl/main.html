@@ -1,47 +1,127 @@
 <header>
-  <a href="http://seevantage.com" target="_blank">
-    <img appshell-src="media/logo.png" appshell-group="main"/>
+  <a href="http://github.rommelsantor.com/ng-appshell/">
+    <img src="media/logo.png" appshell-image appshell-group="main"/>
   </a>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="/ng-appshell">
+          Home
+        </a>
+
+        <ul>
+          <li>
+            <a href="/ng-appshell">Sub-Link #1</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #2</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #3</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #4</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/ng-appshell">
+          About
+        </a>
+
+        <ul>
+          <li>
+            <a href="/ng-appshell">Sub-Link #1</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #2</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #3</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #4</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/ng-appshell">
+          Angular
+        </a>
+
+        <ul>
+          <li>
+            <a href="/ng-appshell">Sub-Link #1</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #2</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #3</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #4</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/ng-appshell">
+          Contact
+        </a>
+
+        <ul>
+          <li>
+            <a href="/ng-appshell">Sub-Link #1</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #2</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #3</a>
+          </li>
+          <li>
+            <a href="/ng-appshell">Sub-Link #4</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <section>
   <div class="row">
     <div class="lhs">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        This block and the header are part of the appshell and can be interacted with
+        almost instantaneously while the "real" page content is still processing/loading.
       </p>
     </div>
 
     <div class="rhs">
       <ul>
         <li>
-          Lorem ipsum
+          Lorem
         </li>
         <li>
-          dolor sit amet
+          Ipsum
         </li>
         <li>
-          consectetur adipiscing
+          Dolor
         </li>
         <li>
-          elit, sed do
-        </li>
-        <li>
-          eiusmod tempor incididunt
+          Sit Amet
         </li>
       </ul>
     </div>
 
     <br/>
 
-    <div id="index-content" ng-controller="IndexController">
+    <div id="index-content" ng-controller="IndexController" appshell-image appshell-group="main">
     </div>
   </div>
 
-  <img id="main-bg" appshell-src="media/bg.jpg" appshell-group="main"/>
+  <img id="main-bg" src="media/bg.jpg" appshell-image appshell-group="main"/>
 </section>
 
 <footer>
