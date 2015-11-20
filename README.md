@@ -11,13 +11,13 @@ Methodology:
 
 ---
 
-## Install / Usage
+## Install
 
 Load `ng-appshell.js` and add the `ngAppShell` module as a dependency of your app.
 
 *Dependency:* [ngStorage](https://github.com/gsklee/ngStorage)
 
-## Structure
+## Usage
 
 * Two data types can be cached:
   * shell body - the markup defining the shell's DOM
