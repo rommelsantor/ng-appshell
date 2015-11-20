@@ -62,6 +62,6 @@ There are a few variations around (such as using a Service Worker), but this imp
 The "shell" is effectively a skeleton that includes common page elements, such as header, navigation, and footer, among other things. Subordinate to this shell is th
 e actual meat of the requested page, the real business content that the user is after. For a latent server or heavy page content, it can sometimes take long (meaning a couple of seconds) before the browser can render meaningful content that the user can cleanly start interact with.
 
-If you're wondering, the genesis for me was with a client who uses lengthy, media-heavy pages and wanted especially in mobile for the site to 1) appear loaded above the fold as immediately as possible so it gives the feel similar to a native app and 2) limit as much as possible then blank blink between page reloads.
+If you're wondering, the genesis for me was with a client who uses lengthy, media-heavy pages and wanted especially in mobile for the site to 1) appear loaded above the fold as immediately as possible so it gives the feel similar to a native app and 2) limit as much as possible the blank blink between page reloads.
 
 I think it's a decent start, but there's definitely room for improvement.
