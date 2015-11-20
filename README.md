@@ -11,9 +11,9 @@ Methodology:
 
 ---
 
-## Install
+## Install / Usage
 
-Load the ngAppShell module into your Angular app via ng-appshell.js.
+Load `ng-appshell.js` and add the `ngAppShell` module as a dependency of your app.
 
 *Dependency:* [ngStorage](https://github.com/gsklee/ngStorage)
 
